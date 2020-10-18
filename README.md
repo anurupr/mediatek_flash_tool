@@ -22,6 +22,26 @@ dumping and flashing firmware.
  * Supports rebooting the device after operations are completed
  * Enables USB 2.0 mode in Download Agent
 
+### Install
+ * Without this linking fails
+```
+sudo apt-get install libudev1 libudev-dev
+```
+ * Installing ninja
+```
+wget https://github.com/ninja-build/ninja/releases/download/v1.10.1/ninja-linux.zip
+sudo unzip ninja-linux.zip -d /usr/local/bin/
+sudo update-alternatives --install /usr/bin/ninja ninja /usr/local/bin/ninja 1 --force
+```
+ * Build flash_tool . These steps are in run.sh but putting it here for easy reference
+```
+meson setup builddir
+cd builddir
+ninja
+```
+
+
+
 ## Examples
 
 Dumping the GPT, using the appropriate Download Agent from `MTK_AllInOne_DA.bin`.
